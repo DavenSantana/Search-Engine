@@ -1,0 +1,3 @@
+This is an example of entering the command line, the only thing that is missing is the path, the path is included with the PathOfDir file.
+
+-CorpusDir <Missing Path> -InvertedIndex NameOfIndexFile.txt -StopList NameOfStopListFile.txt -Queries QueryFile.txt -Results ResultsFile.txt -SearchWord goodbye -SearchDoc q10d2.txt -WriteDecision yes -Stem no -Snippet 8 -Output both

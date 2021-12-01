@@ -1,0 +1,71 @@
+Recall / Precision Report -
+
+For all 10 of my queries which look as so - 
+
+Query 1) Who is on the quarter?
+Query 2) Who owns Microsoft?
+Query 3) What is the United States of America’s debt?
+Query 4) What are the most popular places in New York City?
+Query 5) Who invented the internet?
+Query 6) What is the most popular city in the world?
+Query 7) How old is the United States of America?
+Query 8) Who is on the one-hundred-dollar bill?
+Query 9) What happened to two-dollar bills?
+Query 10) Who was the 24th President of the United States of America?
+
+There is either one or a couple of important terms per every query. For example, "Who is on the quarter", the only important term here is quarter, so in my code I basically took every important term in each query and I did precision and recall for every single important term.
+
+The important terms for every query is as follows -
+
+Query 1) quarter
+Query 2) microsoft
+Query 3) america, debt
+Query 4) york, city
+Query 5) internet
+Query 6) city
+Query 7) america
+Query 8) dollar, bill
+Query 9) dollar, bill
+Query 10) president, america
+
+So basically I took these terms and I associated them with the documents in the corpus that are associated with these terms, for example, quarter is associated with all the html files or txt files that start with q1 (query 1). So we have q1d1.html, q1d2.html, ..., q1d20.html since there are 20 html files associated with the query quarter, d1 just means document 1, d20, document 20 and so on.
+
+For all of these queries I got this for the output -
+
+The query 'quarter' has 20 relevant documents and is found in 54 documents, 20 were documents that were relevant and retrieved from the corpus
+The precision for 'quarter' is : 0.37037037037037035
+The recall for 'quarter' is : 1.0
+
+The query 'debt' has 20 relevant documents and is found in 29 documents, 20 were documents that were relevant and retrieved from the corpus
+The precision for 'debt' is : 0.6896551724137931
+The recall for 'debt' is : 1.0
+
+The query 'president' has 20 relevant documents and is found in 92 documents, 20 were documents that were relevant and retrieved from the corpus
+The precision for 'president' is : 0.21739130434782608
+The recall for 'president' is : 1.0
+
+The query 'dollar' has 40 relevant documents and is found in 81 documents, 39 were documents that were relevant and retrieved from the corpus
+The precision for 'dollar' is : 0.48148148148148145
+The recall for 'dollar' is : 0.975
+
+The query 'america' has 60 relevant documents and is found in 126 documents, 45 were documents that were relevant and retrieved from the corpus
+The precision for 'america' is : 0.35714285714285715
+The recall for 'america' is : 0.75
+
+The query 'microsoft' has 20 relevant documents and is found in 58 documents, 20 were documents that were relevant and retrieved from the corpus
+The precision for 'microsoft' is : 0.3448275862068966
+The recall for 'microsoft' is : 1.0
+
+The query 'york' has 20 relevant documents and is found in 111 documents, 20 were documents that were relevant and retrieved from the corpus
+The precision for 'york' is : 0.18018018018018017
+The recall for 'york' is : 1.0
+
+The query 'internet' has 20 relevant documents and is found in 64 documents, 20 were documents that were relevant and retrieved from the corpus
+The precision for 'internet' is : 0.3125
+The recall for 'internet' is : 1.0
+
+The query 'city' has 40 relevant documents and is found in 91 documents, 39 were documents that were relevant and retrieved from the corpus
+The precision for 'city' is : 0.42857142857142855
+The recall for 'city' is : 0.975
+
+So I calculated the precision and recall for all of these important key terms through some code that I created. Basically what I did first was I created a method which would give a query such as "quarter" all the documents relevant to it which is only the documents q1d1 through q1d20, I did this for all of these key terms. The next thing I did was I checked if the document that contains quarter was a document relevant to the query, meaning that the document was a document q1d1 through q1d20. If the document wasn't a document q1d1 through q1d20 then I knew this was a false positive and if the document was missing meaning there was some document that wasn't returned I knew this was a false negative. For returning the information I basically printed how many documents are relevant to the query, then I printed the total amount of documents the query was found in, then I printed how many documents that were relevant to the query were returned to the user. This is all the information you need to print the precision and recall of the documents. Most of these documents have a recall of 1 which means every document relevant to the query was returned to the user but some of them dont which means some documents are missing. It's interesting to see how the key term of the query doesn't always lead to a document containing that word, so for example "Where is the United States of America", here "America" would be our key term, we would expect every document returned to us to contain the word "America" but that isn't always the case which is how recall works. On the other end, I expected that from precision, sometimes a document may contain a word but that doesn't mean its relevant, for example I may be talking about the internet and mention America, this document isn't relevant to America but rather to the internet so I didn't expect precision to be that high because of this.
